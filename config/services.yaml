@@ -23,3 +23,19 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    _instanceof:
+        App\ADR\Action\ActionInterface:
+            tags:
+                - { name: app.action }
+                - { name: controller.service_arguments }
+
+    App\ADR\Responder\JsonActionResponder:
+        tags:
+            - {name: kernel.event_listener, event: kernel.view}
+
+    App\ADR\Resolver\ActionResolver:
+        decorates: controller_resolver
+        decoration_priority: 10
+        arguments:
+            $resolver: '@App\ADR\Resolver\ActionResolver.inner'

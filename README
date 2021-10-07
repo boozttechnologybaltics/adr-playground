@@ -1,0 +1,8 @@
+### ADR Demo Playground
+
+Features a demo of versioned actions
+
+To start the server run:
+```shell
+php -S localhost:8000 ./public/index.php
+```

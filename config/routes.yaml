@@ -1,3 +1,9 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+index:
+  path: /api/{version}
+  methods: GET
+  defaults:
+    _action: 'api.index'
